@@ -1,0 +1,15 @@
+---
+title: "DATA-534 Project Personal Notebook"
+author: "Dhun Sheth"
+date: "2024-01-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### January 19th, 2024
+Today was our first meeting where we decided **to use the NASA api** for our R wrapper. I will be using the Asteroids - NeoWs API and the function will allow the user to search for near Earth objects based on start/end date. 
+
+We also worked on our proposal slide deck outlining each members work/part.

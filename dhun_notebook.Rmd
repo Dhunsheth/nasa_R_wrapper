@@ -21,3 +21,12 @@ Worked on making a test api call to the NEO api - was able to get a valid respon
 Made progress on cleaning and unnesting the data from an api call so I can use it. 
 
 Also made a check_date function to ensure the difference between start/end date is 7 days or less as that is an API contraint which needs to be met in order to make a successful call.
+
+### January 25th, 2024
+Made a commit to push NEO API wrapper R file to main branch after making neccessary functions. 
+
+To Do:
+1. add docstrings to functions
+2. make documentation for functions in readme
+3. create unit test file for functions
+4. connect to travis CI or github actions

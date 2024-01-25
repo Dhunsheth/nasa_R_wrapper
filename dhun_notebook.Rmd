@@ -13,3 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 Today was our first meeting where we decided **to use the NASA api** for our R wrapper. I will be using the Asteroids - NeoWs API and the function will allow the user to search for near Earth objects based on start/end date. 
 
 We also worked on our proposal slide deck outlining each members work/part.
+
+### January 23rd, 2024
+Worked on making a test api call to the NEO api - was able to get a valid response but the data is super nested and need to figure out a way to unnest/make it usable. 
+
+### January 24th, 2024
+Made progress on cleaning and unnesting the data from an api call so I can use it. 
+
+Also made a check_date function to ensure the difference between start/end date is 7 days or less as that is an API contraint which needs to be met in order to make a successful call.

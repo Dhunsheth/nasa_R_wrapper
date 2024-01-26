@@ -24,17 +24,17 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages("httr")
-          install.packages("jsonlite")
-          install.packages("tibble")
-          install.packages("ggplot2")
-          install.packages("dplyr")
-          install.packages("readr")
-          install.packages("tidyr")
-          install.packages("lubridate")
-          install.packages("scales")
-          install.packages("roxygen2")
-          install.packages("testthat")
+          Rscript -e 'install.packages("httr")'
+          Rscript -e 'install.packages("jsonlite")'
+          Rscript -e 'install.packages("tibble")'
+          Rscript -e 'install.packages("ggplot2")'
+          Rscript -e 'install.packages("dplyr")'
+          Rscript -e 'install.packages("readr")'
+          Rscript -e 'install.packages("tidyr")'
+          Rscript -e 'install.packages("lubridate")'
+          Rscript -e 'install.packages("scales")'
+          Rscript -e 'install.packages("roxygen2")'
+          Rscript -e 'install.packages("testthat")'
       - name: Run tests
         run: |
           Rscript -e 'testthat::test_file("test_file.R")'

@@ -24,7 +24,7 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck", "httr", "jsonlite", "tibble", "dplyr", "tidyverse", "lubridate", "scales", "roxygen2", "testthat"))
+          install.packages(c("remotes", "rcmdcheck", "httr", "jsonlite", "tibble", "dplyr", "ggplot2", "readr", "tidyr", "tibble", "lubridate", "scales", "roxygen2", "testthat"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Run tests

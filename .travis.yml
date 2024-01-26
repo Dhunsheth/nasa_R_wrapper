@@ -1,0 +1,26 @@
+language: r
+sudo: false
+cache:
+  packages: true
+
+before_install:
+  - R -e 'install.packages(c("httr", "jsonlite", "tibble", "dplyr", "tidyverse", "lubridate", "scales", "roxygen2","testthat"))'
+
+r:
+  - release
+  - devel
+
+r_binary_packages:
+  - httr
+  - jsonlite
+  - tibble
+  - dplyr
+  - tidyverse
+  - lubridate
+  - scales
+  - roxygen2
+
+script:
+  - R CMD build .
+  - Rscript -e 'devtools::check()'
+  - Rscript test_file.R

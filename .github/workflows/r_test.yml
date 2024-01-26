@@ -24,8 +24,17 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("curl"))
-          install.packages(c("remotes", "httr", "jsonlite", "tibble", "dplyr", "ggplot2", "readr", "tidyr", "lubridate", "scales", "roxygen2", "testthat"))
+          install.packages("httr")
+          install.packages("jsonlite")
+          install.packages("tibble")
+          install.packages("ggplot2")
+          install.packages("dplyr")
+          install.packages("readr")
+          install.packages("tidyr")
+          install.packages("lubridate")
+          install.packages("scales")
+          install.packages("roxygen2")
+          install.packages("testthat")
       - name: Run tests
         run: |
           Rscript -e 'testthat::test_file("test_file.R")'

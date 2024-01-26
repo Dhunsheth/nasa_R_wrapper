@@ -2,24 +2,34 @@ name: r_test
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
 
 jobs:
-  R-Test:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        r-version: ['4.1.1']
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v1
+      - uses: actions/checkout@v3
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
         with:
-          r-version: '4.3.1'
-
+          r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("httr", "jsonlite", "tibble", "dplyr", "tidyverse", "lubridate", "scales", "roxygen2", "testthat"))
-
+          install.packages(c("remotes", "rcmdcheck", "httr", "jsonlite", "tibble", "dplyr", "tidyverse", "lubridate", "scales", "roxygen2", "testthat"))
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
       - name: Run tests
-        run: Rscript -e 'testthat::test_file("test_file.R")'
+        run: |
+          Rscript -e 'testthat::test_file("test_file.R")'
+      - name: Check
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        shell: Rscript {0}

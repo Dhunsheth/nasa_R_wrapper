@@ -1,4 +1,4 @@
-name: R-CMD-check
+name: r_test
 
 on:
   push:
@@ -20,7 +20,6 @@ jobs:
       - name: Install dependencies
         run: |
           install.packages(c("httr", "jsonlite", "tibble", "dplyr", "tidyverse", "lubridate", "scales", "roxygen2", "testthat"))
-          remotes::install_github("r-lib/covr")
 
       - name: Run tests
-        run: Rscript -e 'devtools::test()'
+        run: Rscript -e 'testthat::test_file("test_file.R")'

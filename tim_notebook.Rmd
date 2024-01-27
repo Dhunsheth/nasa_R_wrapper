@@ -1,0 +1,22 @@
+---
+title: "DATA-534 Project Personal Notebook"
+author: "Tim Pulfer"
+date: "2024-01-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### January 19th, 2024
+Today was our first meeting where we decided **to use the NASA api** for our R wrapper. I will be using the Mars Rover Images API to retrieve the image URL for a certain rovers camera on a certain date.
+
+We also worked on our proposal slide deck outlining each members work/part.
+
+### January 25th
+Worked on laying out the function parameters for my Mars Rover API.
+The function will take in 3 parameters being, the rovers name, the camera angle and the date.
+
+### January 27th 
+I pushed my first version of the API function wrapper to the GitHub. This version is fully working with no known bugs.

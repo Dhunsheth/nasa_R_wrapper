@@ -8,6 +8,11 @@ output: html_document
 ```{r}
 library(httr)
 library(jsonlite)
+library(ggplot2)
+library(ggmap)
+library(sp)
+library(leaflet)
+library(htmltools)
 
 api_key <- 'fVnQw6kAGUfwkaLWnhgmNmW7S6SxVx4E27oJgDG9'
 
@@ -47,4 +52,18 @@ get_image_urls <- function(type='natural', date = NULL){
 }
 ```
 
+```{r}
+data <- get_metadata()
+```
+
+```{r}
+plot_centroid <- function(type='natural', date = NULL){
+  data <- get_metadata(type, date)
+  df <- data.frame(longitude = data$centroid_coordinates$lon, 
+                 latitude = data$centroid_coordinates$lat,
+                 name = data$image)
+  
+  leaflet(df) %>% addTiles() %>% addMarkers(~longitude, ~latitude, label = ~htmlEscape(name))
+}
+```
 

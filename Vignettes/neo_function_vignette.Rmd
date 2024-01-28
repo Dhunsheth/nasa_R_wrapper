@@ -1,0 +1,53 @@
+---
+title: "NEO Function Vignette"
+author: "Dhun Sheth"
+date: "2024-01-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Guide to import and use the NASA NEO API
+
+### Step 1: Import the function script   
+In order to call the function, we must import the R script where the function is defined ("neo_function_wrapper.R").    
+
+```{r}
+
+source("../neo_function_wrapper.R")
+
+```    
+      
+If you are in another directory, you must also add the file path where this script is located in addition to the file name. 
+
+### Step 2: Call the "get_neo(start_date, end_date)" function    
+Once the script has been successfully imported, call the get_neo() function and pass the start and end date.   
+     
+**Note:** Can only call max 7 days worth of data, so an error will be encountered if the difference between start/end date is more than 7.     
+
+**Format of Date:** YYYY-MM-DD
+
+```{r, fig.width=10}
+
+a <- get_neo('2023-12-20','2023-12-27')
+
+```
+
+
+Example of error if difference in date is longer than 7 days.
+
+```{r}
+
+a <- get_neo('2023-12-20','2023-12-30')
+print(a)
+
+```
+
+
+### Step 3: Conclusion     
+All data is returned by the function, so if additional analysis is needed, it can be accessed by calling `a$data`.     
+
+In addition, asteroid specific information can be retrieved via `a$data$links`.

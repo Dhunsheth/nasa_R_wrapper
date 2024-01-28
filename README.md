@@ -1,3 +1,5 @@
+[![r_test](https://github.com/Dhunsheth/nasa_R_wrapper/actions/workflows/r_test.yml/badge.svg?branch=main)](https://github.com/Dhunsheth/nasa_R_wrapper/actions/workflows/r_test.yml)
+
 # NASA NEO Function Documentation
 
 This document provides a guide on using the `get_neo` function, which interacts with the NASA Near Earth Object (NEO) API to retrieve NEO data for a specified date range.

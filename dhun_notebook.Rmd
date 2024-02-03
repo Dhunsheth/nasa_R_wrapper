@@ -42,3 +42,12 @@ Created a vignette for the NEO function API.
 We worked on a software licence, added code of conduct and contributions documents which we all agreed to and would follow.
 
 Updated the README file to outline how to use the function.
+
+### Feburary 4th
+Came together to bring all function wrappers in the main branch. 
+
+Updated test file to contain all test cases for all 3 functions/API's.
+
+Worked on presentation slides.
+
+Added all documentation/vignettes. 

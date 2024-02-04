@@ -20,3 +20,9 @@ The function will take in 3 parameters being, the rovers name, the camera angle 
 
 ### January 27th 
 I pushed my first version of the API function wrapper to the GitHub. This version is fully working with no known bugs.
+
+### February 2nd
+Broke code down into 3 seperate functions (for testing purposes). Then wrote test cases for the fucntions, merged the 'tim' branch with the 'main' branch.
+
+### February 3rd
+Worked on presentation slides for me function.

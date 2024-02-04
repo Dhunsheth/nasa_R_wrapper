@@ -1,0 +1,29 @@
+---
+title: "DATA-534 Project Personal Notebook"
+author: "Jacob Rosen"
+date: "2024-01-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### January 19th, 2024
+Today was our first meeting where we decided **to use the NASA api** for our R wrapper. 
+I will be using the NASA EPIC API and the function will return a list of image urls for the user. 
+
+We also worked on our proposal slide deck outlining each members work/part.
+
+### January 27th, 2024
+
+Created function to retrieve metadata from API and get list of urls.
+
+### January 28th 
+
+Created function to plot centroids.
+
+### Febuary 4th
+Created a vignette and added documentation and tests.
+
+Updated the README file to outline how to use the function.

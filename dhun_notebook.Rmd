@@ -30,3 +30,15 @@ To Do:
 2. make documentation for functions in readme
 3. create unit test file for functions
 4. connect to travis CI or github actions
+
+### January 26th 
+Completed the unit test file and all tests were successful. 
+
+**Key Decision:** I could not use Travis CI because my free account had expired so I instead opted to implement CI via github actions. 
+
+### January 28th
+Created a vignette for the NEO function API. 
+
+We worked on a software licence, added code of conduct and contributions documents which we all agreed to and would follow.
+
+Updated the README file to outline how to use the function.

@@ -29,10 +29,12 @@ get_plot <- function(data){
     unnest(cols = c(asteroids)) %>%
     mutate(date = as.Date(date))
   
+  # Extract nested fields
   flattened_close_approach_data <- enframe(neo_data$close_approach_data) %>% unnest(cols = c(value))
   flattened_close_approach_data$miss_distance$kilometers <- as.numeric(flattened_close_approach_data$miss_distance$kilometers)
   est_diameter_avg <- (neo_data$estimated_diameter$kilometers$estimated_diameter_max + neo_data$estimated_diameter$kilometers$estimated_diameter_min)/2
   
+  # Add nested columns individually into the main table
   neo_data <- neo_data %>%
     mutate(full_date = flattened_close_approach_data$close_approach_date_full) %>%
     mutate(miss_distance_km = flattened_close_approach_data$miss_distance$kilometers) %>%
@@ -42,8 +44,9 @@ get_plot <- function(data){
   neo_data$full_date <- parse_date_time(neo_data$full_date, orders = "%Y-%b-%d %H:%M")
   neo_data$full_date <- as.POSIXct(neo_data$full_date)
   
+  # Plotting the graph
   plot <- ggplot(neo_data, aes(x = full_date, y = miss_distance_km, size = est_diameter_avg, color = est_diameter_avg)) +
-    geom_point() +
+    geom_point(na.rm = TRUE) +
     ggtitle("Near Earth Objects") +
     labs(x = '', y = "Miss Distance from Earth (km)", size = 'Estimated Diameter', color = '') +
     theme(plot.title = element_text(hjust = 0.5)) +

@@ -1,0 +1,79 @@
+---
+title: "EPIC Function Vignette"
+author: "Jacob Rosen"
+date: "2024-01-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Guide to import and use the NASA DSCOVR: EPIC API
+
+### Step 1: Import the function script   
+In order to call the function, we must import the R script where the function is defined ("epic_wrapper.R").    
+
+```{r, echo=FALSE}
+
+source("../epic_wrapper.R")
+
+```    
+      
+If you are in another directory, you must also add the file path where this script is located in addition to the file name. 
+
+### Step 2: Call the "get_image_urls(type, date)" function    
+Once the script has been successfully imported, call the get_image_urls() function and pass the type of images you want to view and the date. 
+
+**Type:** 
+If no type is provided the default will be 'natural'. Other types include 'enhanced', 'aerosol', and 'cloud'. 
+
+**Date:**
+If no date is provided the default date is the most recent date with available images. Format should be 'YYYY-MM-DD'.
+
+The function returns a list of urls to access the images on a browser.
+
+```{r}
+images <- get_image_urls('natural', '2024-01-01')
+```
+
+This is the first item from the images list:
+
+<img src="`r images[1]`" alt="Image from EPIC API for 2024-01-01" width="200"/>
+
+Here are examples of the other types of images
+
+```{r}
+images_enhanced <- get_image_urls('enhanced', '2024-01-01')
+images_aerosol <- get_image_urls('aerosol', '2024-01-01')
+images_cloud <- get_image_urls('cloud', '2024-01-01')
+```
+
+#### Enhanced
+
+<img src="`r images_enhanced[1]`" alt="Enhanced image from EPIC API for 2024-01-01" width="200"/>
+
+#### Aerosol
+
+<img src="`r images_aerosol[1]`" alt="Aerosol image from EPIC API for 2024-01-01" width="200"/>
+
+#### Cloud
+
+<img src="`r images_cloud[1]`" alt="Cloud image from EPIC API for 2024-01-01" width="200"/>
+
+
+### Step 3: Call the "plot_centroids(type, date)" function    
+We can get an idea of the scope of each image taken on a given day by plotting the centroids of each image in the set. Call the plot_centroids() function with the same parameters as before.
+
+```{r, fig.width=7}
+plot_centroids('natural', '2024-01-01')
+```
+
+Image epic_1b_20240101024318 is taken with a centroid over Australia:
+
+<img src="`r images[2]`" alt="epic_1b_20240101024318" width="200"/>
+
+Image epic_1b_20240101151935 is taken with a centroid over South America on the same day:
+
+<img src="`r images[9]`" alt="epic_1b_20240101151935" width="200"/>

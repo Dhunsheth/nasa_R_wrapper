@@ -1,5 +1,6 @@
 library(testthat)
 source("neo_function_wrapper.R")
+source("rover_images_wrapper_module.r")
 
 # check_date function test cases
 test_that("Valid date range returns PASS", {
@@ -49,3 +50,23 @@ test_that("get_neo returns a ggplot object for a valid date range", {
   result <- get_neo('2023-01-01', '2023-01-07')
   expect_true(inherits(result, 'gg'))
 })
+
+test_that("check_input returns TRUE for valid inputs", {
+  expect_true(check_input("curiosity", "fhaz", "2023-01-01"))
+})
+
+test_that("check_input stops for invalid rover name", {
+  expect_error(check_input("invalid_rover", "fhaz", "2023-01-01"), "Invalid rover name")
+})
+
+test_that("get_api_response returns a response object for valid inputs", {
+  response <- get_api_response("curiosity", "fhaz", "2023-01-01")
+  expect_true(inherits(response, "response"))
+  expect_equal(status_code(response), 200)
+})
+
+test_that("get_mars_rover_image_url returns a URL for valid inputs", {
+  url <- get_mars_rover_image_url("curiosity", "fhaz", "2023-01-01")
+  expect_true(grepl("http", url))
+})
+

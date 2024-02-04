@@ -36,6 +36,6 @@ get_mars_rover_image <- function(rover, camera, date) {
 }
 
 # Example usage
-#img_link <- get_mars_rover_image("curiosity", "fhaz", "2023-01-01")
-#print(img_link)
+img_link <- get_mars_rover_image("curiosity", "fhaz", "2023-01-01")
+print(img_link)
 

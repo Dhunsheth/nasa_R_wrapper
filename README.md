@@ -73,3 +73,26 @@ Here are examples of the other types of images:
 We can get an idea of the scope of each image taken on a given day by plotting the centroids of each image in the set. Call the `plot_centroids(type, date)` function with the same parameters as before.
 
 Ex: `plot_centroids('natural', '2024-01-01')`
+
+# NASA Rover Images Function
+## Importing the Function
+
+In order to call the function, we must import the R script where the function is defined ("rover_images_wrapper_module").
+
+`source("../rover_images_wrapper_module.R")`
+
+If you are in another directory, you must also add the file path where this script is located in addition to the file name.
+
+## Using 'get_mars_rover_image_url(rover, camera, date)' Function
+
+**Format of camera:** FHAZ, RHAZ, MAST, CHEMCAM, MAHLI, MARDI, NAVCAM. For "opportunity" and "spirit": FHAZ, RHAZ, NAVCAM, PANCAM, MINITES.
+
+**Format of rover:** "curiosity", "opportunity", and "spirit"
+
+**Format of date:** YYYY-MM-DD
+
+Example: `img_link <- get_mars_rover_image_url("curiosity", "fhaz", "2023-01-01")`
+
+### Step 3: Conclusion     
+
+This function will return a hyperlink to the requested image. Copy/paste this URL into a web browser to see the image.

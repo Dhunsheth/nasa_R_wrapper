@@ -55,7 +55,7 @@ source("epic_wrapper.R")
 # get_metadata test cases
 test_that("Invalid API response returns error message", {
   data <- get_metadata('notarealtype', '2023-01-07')
-  expect_equal(response, 'Response status code not 200')
+  expect_equal(data, 'Response status code not 200')
 })
 
 test_that("Valid API response returns metadata", {
@@ -77,6 +77,6 @@ test_that("EPIC url list works as expected for cloud", {
 
 #plot_centroids test case
 test_that('plot_centroids returns a leaflet plot', {
-  centroid_plot <- get_centroids('natural', '2023-01-07')
+  centroid_plot <- plot_centroids('natural', '2023-01-07')
   expect_is(centroid_plot, 'leaflet')
 })

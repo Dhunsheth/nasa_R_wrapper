@@ -35,6 +35,8 @@ jobs:
           Rscript -e 'install.packages("scales")'
           Rscript -e 'install.packages("roxygen2")'
           Rscript -e 'install.packages("testthat")'
+          Rscript -e 'install.packages("leaflet")'
+          Rscript -e 'install.packages("htmltools")'
       - name: Run tests
         run: |
           Rscript -e 'testthat::test_file("test_file.R")'

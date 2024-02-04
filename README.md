@@ -93,6 +93,6 @@ If you are in another directory, you must also add the file path where this scri
 
 Example: `img_link <- get_mars_rover_image_url("curiosity", "fhaz", "2023-01-01")`
 
-### Step 3: Conclusion     
+## Conclusion     
 
 This function will return a hyperlink to the requested image. Copy/paste this URL into a web browser to see the image.
